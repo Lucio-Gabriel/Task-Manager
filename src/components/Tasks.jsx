@@ -11,9 +11,11 @@ import { useState } from "react";
 import TASKS from "../constants/tasks";
 import TaskItem from "./TaskItem";
 import { toast } from "sonner";
+import AddTaskDialog from "./AddTaskDialog.jsx";
 
 const Tasks = () => {
   const [tasks, setTasks] = useState(TASKS);
+  const [AddTaskDialogIsOpen, setAddTaskDialogIsOpen] = useState(false);
 
   const morningTasks = tasks.filter((task) => task.time === "morning");
   const afternoonTasks = tasks.filter((task) => task.time === "afternoon");
@@ -67,10 +69,12 @@ const Tasks = () => {
             <TrashIcon />
           </Button>
 
-          <Button>
-            Adicionar tarefa
+          <Button onClick={() => setAddTaskDialogIsOpen(true)}>
+            Nova tarefa
             <AddIcon />
           </Button>
+
+          <AddTaskDialog isOpen={AddTaskDialogIsOpen} />
         </div>
       </div>
 
