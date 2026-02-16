@@ -1,3 +1,5 @@
+import { HomeIcon, TasksIcon } from "../assets/icons";
+
 const sidebarButton = ({ children, variant }) => {
   const getVariantClasses = () => {
     if (variant === "unselected") {
